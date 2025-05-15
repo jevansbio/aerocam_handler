@@ -44,7 +44,7 @@ dat_handler.save_animation("animation.gif")
 <img src="example_images/animation.gif" height="200">
 
 ## Documentation
-[More detailed documentation can be found here](index.html)
+[More detailed documentation can be found here](https://jevansbio.github.io/aerocam_handler/docs/aerocam_handler/)
 
 ## Potential future features
 - Animate along radar track.
