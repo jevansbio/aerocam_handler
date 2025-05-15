@@ -4,7 +4,7 @@ A python library for reading `.dat` files produced by the Swiss Bird Radar Aeroe
 
 ## Installation
 ```shell
-pip install git+https://github.com/`
+pip install git+https://github.com/jevansbio/aerocam_handler.git
 ```
 
 ## Usage
