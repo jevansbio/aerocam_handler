@@ -52,7 +52,8 @@ def get_concat_h_multi_resize(image_list: List[Image.Image], resample: int = Ima
     return composite_image
 
 
-def get_concat_h_blank(image1: Image.Image, image2: Image.Image, color: Tuple[int, int, int] = (0, 0, 0)) -> Image.Image:
+def get_concat_h_blank(image1: Image.Image, image2: Image.Image,
+                       color: Tuple[int, int, int] = (0, 0, 0)) -> Image.Image:
     """
     Concatenate two images horizontally with a blank background.
 
@@ -71,7 +72,9 @@ def get_concat_h_blank(image1: Image.Image, image2: Image.Image, color: Tuple[in
     return composite_image
 
 
-def get_concat_v_blank(image1: Image.Image, image2: Image.Image, color: Tuple[int, int, int] = (0, 0, 0)) -> Image.Image:
+def get_concat_v_blank(image1: Image.Image,
+                       image2: Image.Image,
+                       color: Tuple[int, int, int] = (0, 0, 0)) -> Image.Image:
     """
     Concatenate two images vertically with a blank background.
 
@@ -143,7 +146,9 @@ def get_resize_blank(image_list: List[Image.Image], color: Tuple[int, int, int] 
     return new_image_list
 
 
-def get_row_col_images(image_list: List[Image.Image], max_width: Optional[int] = None, max_col: Optional[int] = None) -> List[List[Image.Image]]:
+def get_row_col_images(image_list: List[Image.Image],
+                       max_width: Optional[int] = None,
+                       max_col: Optional[int] = None) -> List[List[Image.Image]]:
     """
     Arrange images into rows and columns based on maximum width and column count.
 
