@@ -36,15 +36,15 @@ resized_image_list = dat_handler.get_resized_image_list(color=(0,0,0))
 ```python
 dat_handler.save_concatenated_image("concatenated_image.jpg")
 ```
-![Combined images](docs/concatenated_image.jpg)
+![Combined images](example_images/concatenated_image.jpg)
 #### Save an animation
 ```python
 dat_handler.save_animation("animation.gif")
 ```
-<img src="docs/animation.gif" height="200">
+<img src="example_images/animation.gif" height="200">
 
 ## Documentation
-[More detailed documentation can be found here](html/index.html)
+[More detailed documentation can be found here](html/aerocam_handler/index.html)
 
 ## Potential future features
 - Animate along radar track.
