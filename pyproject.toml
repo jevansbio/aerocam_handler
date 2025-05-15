@@ -1,0 +1,15 @@
+[project]
+name = "aerocam_handler"
+version = "1.0.0"
+description = "A Python package for handling the .dat files produced by the Swiss Bird Radar AeroecologyCam AC1"
+authors = [
+    { name = "Julian Evans", email = "jevansbio@gmail.com" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = "==3.11.*"
+dependencies = ["pillow==11.2.1"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>aerocam_handler.reader API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>aerocam_handler.reader</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="aerocam_handler.reader.DatReader"><code class="flex name class">
+<span>class <span class="ident">DatReader</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DatReader():
+    &#34;&#34;&#34;
+    A class to read and process Swiss bird radar aeroecology DAT AeroecologyCam AC1 files.
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        Initializes a new instance of the DatReader class.
+        &#34;&#34;&#34;
+        self.reset()
+
+    def reset(self):
+        &#34;&#34;&#34;
+        Resets the internal state of the DatReader instance.
+        &#34;&#34;&#34;
+        self.rofi_all = []
+        self.offset = 0
+        self.contents = None
+
+    def open_dat_file(self, file_handle: BufferedReader, verbose: bool = False):
+        &#34;&#34;&#34;
+        Opens and reads a DAT file.
+
+        Args:
+            file_handle (BufferedReader): The file handle of the DAT file to read.
+            verbose (bool): If True, prints detailed information during processing.
+        &#34;&#34;&#34;
+        self.reset()
+        self.contents = file_handle.read()
+        self.read_dat_file(verbose)
+
+    def read_and_advance(self, format_str: str, offset: int):
+        &#34;&#34;&#34;
+        Reads data from the file contents and advances the offset.
+
+        Args:
+            format_str (str): The format string for struct unpacking.
+            offset (int): The number of bytes to advance after reading.
+
+        Returns:
+            The unpacked data.
+        &#34;&#34;&#34;
+        result = struct.unpack_from(format_str, self.contents, self.offset)[0]
+        self.offset += offset
+        return result
+
+    def read_dat_file(self, file_handle: BufferedReader, verbose: bool = False):
+        &#34;&#34;&#34;
+        Reads the contents of a DAT file and processes its image data. 
+        This is based on php code originally provided in the Swiss bird radar data manual.
+
+        Args:
+            file_handle (BufferedReader): The file handle of the DAT file to read.
+            verbose (bool): If True, prints detailed information during processing.
+        &#34;&#34;&#34;
+
+        self.version = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        self.bgwidth = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        self.bgheight = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        self.rofi_count = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        if verbose:
+            print(&#34;{0},{1},{2},{3}&#34;.format(self.version,
+                  self.bgwidth, self.bgheight, self.rofi_count))
+
+        for i in range(self.rofi_count):
+            if verbose:
+                print(i/self.rofi_count)
+            rofi = {}
+            rofi[&#34;height&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+            rofi[&#34;left&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+            rofi[&#34;top&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+            rofi[&#34;width&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+            rofi[&#34;area&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+            rofirows = self.read_and_advance(&#34;&gt;L&#34;, 4)
+            roficols = self.read_and_advance(&#34;&gt;L&#34;, 4)
+
+            image = Image.new(&#39;RGB&#39;, (rofi[&#34;width&#34;], rofi[&#34;height&#34;]))
+            newimdata = []
+            for row in range(rofirows):
+                for col in range(roficols):
+                    b = self.read_and_advance(&#34;B&#34;, 1)
+                    g = self.read_and_advance(&#34;B&#34;, 1)
+                    r = self.read_and_advance(&#34;B&#34;, 1)
+                    rgb = (r, g, b)
+                    newimdata.append(rgb)
+                self.offset += 1*roficols
+
+            image.putdata(newimdata)
+            rofi[&#34;image&#34;] = image
+            self.rofi_all.append(rofi)
+
+    def check_rofi(self):
+        &#34;&#34;&#34;
+        Checks if the DAT file has been loaded.
+
+        Raises:
+            ValueError: If the DAT file is not loaded.
+        &#34;&#34;&#34;
+        if self.rofi_all is None:
+            raise ValueError(&#34;DAT file not loaded&#34;)
+
+    @property
+    def image_list(self):
+        &#34;&#34;&#34;
+        Returns the list of images extracted from the DAT file.
+
+        Returns:
+            list: A list of PIL.Image objects.
+        &#34;&#34;&#34;
+        self.check_rofi()
+        return [x[&#39;image&#39;] for x in self.rofi_all]
+
+    def get_resized_image_list(self, color: tuple = (0, 0, 0)):
+        &#34;&#34;&#34;
+        Returns a list of resized images with a blank background.
+
+        Args:
+            color (tuple): The background color as an RGB tuple.
+
+        Returns:
+            list: A list of resized PIL.Image objects.
+        &#34;&#34;&#34;
+        self.check_rofi()
+        return get_resize_blank(self.image_list, color)
+
+    def get_concatenated_image(self, color: tuple = (0, 0, 0)):
+        &#34;&#34;&#34;
+        Creates a concatenated image from the resized image list.
+
+        Args:
+            color (tuple): The background color as an RGB tuple.
+
+        Returns:
+            PIL.Image: The concatenated image.
+        &#34;&#34;&#34;
+        new_image_list = self.get_resized_image_list(color)
+        dims = [get_dimensions(len(new_image_list)),
+                get_dimensions(len(new_image_list)+1),
+                (ceil(len(new_image_list)**0.5), ceil(len(new_image_list)**0.5))]
+        dims = [x for x in dims if not any([y == 1 for y in x])]
+        dims = [x for x in dims if x[0]/x[1] &gt;= 0.1]
+        dim_prods = [math.prod(x)-len(new_image_list) for x in dims]
+        dims = [dims[i]
+                for i in range(len(dims)) if dim_prods[i] == min(dim_prods)][0]
+
+        conccat_image_list = get_row_col_images(
+            new_image_list, max_col=max(dims))
+        concat_image = get_concat_tile(conccat_image_list)
+
+        if any(x &gt; 65535 for x in concat_image.size):
+            concat_image.thumbnail((65535, 65535), Image.ANTIALIAS)
+
+        return concat_image
+
+    def save_concatenated_image(self, file_path: str, color: tuple = (0, 0, 0)):
+        &#34;&#34;&#34;
+        Saves the concatenated image to a file.
+
+        Args:
+            file_path (str): The path to save the image file.
+            color (tuple): The background color as an RGB tuple.
+        &#34;&#34;&#34;
+        concat_image = self.get_concatenated_image(color)
+        concat_image.save(file_path)
+
+    def save_animation(self, file_path: str, color: tuple = (0, 0, 0)):
+        &#34;&#34;&#34;
+        Saves an animation of the images to a file.
+
+        Args:
+            file_path (str): The path to save the animation file.
+            color (tuple): The background color as an RGB tuple.
+        &#34;&#34;&#34;
+        new_image_list = self.get_resized_image_list(color)
+        new_image_list[0].save(file_path, save_all=True,
+                               append_images=new_image_list[1:], loop=0)</code></pre>
+</details>
+<div class="desc"><p>A class to read and process Swiss bird radar aeroecology DAT AeroecologyCam AC1 files.</p>
+<p>Initializes a new instance of the DatReader class.</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="aerocam_handler.reader.DatReader.image_list"><code class="name">prop <span class="ident">image_list</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def image_list(self):
+    &#34;&#34;&#34;
+    Returns the list of images extracted from the DAT file.
+
+    Returns:
+        list: A list of PIL.Image objects.
+    &#34;&#34;&#34;
+    self.check_rofi()
+    return [x[&#39;image&#39;] for x in self.rofi_all]</code></pre>
+</details>
+<div class="desc"><p>Returns the list of images extracted from the DAT file.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of PIL.Image objects.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="aerocam_handler.reader.DatReader.check_rofi"><code class="name flex">
+<span>def <span class="ident">check_rofi</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_rofi(self):
+    &#34;&#34;&#34;
+    Checks if the DAT file has been loaded.
+
+    Raises:
+        ValueError: If the DAT file is not loaded.
+    &#34;&#34;&#34;
+    if self.rofi_all is None:
+        raise ValueError(&#34;DAT file not loaded&#34;)</code></pre>
+</details>
+<div class="desc"><p>Checks if the DAT file has been loaded.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If the DAT file is not loaded.</dd>
+</dl></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.get_concatenated_image"><code class="name flex">
+<span>def <span class="ident">get_concatenated_image</span></span>(<span>self, color: tuple = (0, 0, 0))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_concatenated_image(self, color: tuple = (0, 0, 0)):
+    &#34;&#34;&#34;
+    Creates a concatenated image from the resized image list.
+
+    Args:
+        color (tuple): The background color as an RGB tuple.
+
+    Returns:
+        PIL.Image: The concatenated image.
+    &#34;&#34;&#34;
+    new_image_list = self.get_resized_image_list(color)
+    dims = [get_dimensions(len(new_image_list)),
+            get_dimensions(len(new_image_list)+1),
+            (ceil(len(new_image_list)**0.5), ceil(len(new_image_list)**0.5))]
+    dims = [x for x in dims if not any([y == 1 for y in x])]
+    dims = [x for x in dims if x[0]/x[1] &gt;= 0.1]
+    dim_prods = [math.prod(x)-len(new_image_list) for x in dims]
+    dims = [dims[i]
+            for i in range(len(dims)) if dim_prods[i] == min(dim_prods)][0]
+
+    conccat_image_list = get_row_col_images(
+        new_image_list, max_col=max(dims))
+    concat_image = get_concat_tile(conccat_image_list)
+
+    if any(x &gt; 65535 for x in concat_image.size):
+        concat_image.thumbnail((65535, 65535), Image.ANTIALIAS)
+
+    return concat_image</code></pre>
+</details>
+<div class="desc"><p>Creates a concatenated image from the resized image list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>color</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The background color as an RGB tuple.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PIL.Image</code></dt>
+<dd>The concatenated image.</dd>
+</dl></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.get_resized_image_list"><code class="name flex">
+<span>def <span class="ident">get_resized_image_list</span></span>(<span>self, color: tuple = (0, 0, 0))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_resized_image_list(self, color: tuple = (0, 0, 0)):
+    &#34;&#34;&#34;
+    Returns a list of resized images with a blank background.
+
+    Args:
+        color (tuple): The background color as an RGB tuple.
+
+    Returns:
+        list: A list of resized PIL.Image objects.
+    &#34;&#34;&#34;
+    self.check_rofi()
+    return get_resize_blank(self.image_list, color)</code></pre>
+</details>
+<div class="desc"><p>Returns a list of resized images with a blank background.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>color</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The background color as an RGB tuple.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of resized PIL.Image objects.</dd>
+</dl></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.open_dat_file"><code class="name flex">
+<span>def <span class="ident">open_dat_file</span></span>(<span>self, file_handle: _io.BufferedReader, verbose: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def open_dat_file(self, file_handle: BufferedReader, verbose: bool = False):
+    &#34;&#34;&#34;
+    Opens and reads a DAT file.
+
+    Args:
+        file_handle (BufferedReader): The file handle of the DAT file to read.
+        verbose (bool): If True, prints detailed information during processing.
+    &#34;&#34;&#34;
+    self.reset()
+    self.contents = file_handle.read()
+    self.read_dat_file(verbose)</code></pre>
+</details>
+<div class="desc"><p>Opens and reads a DAT file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_handle</code></strong> :&ensp;<code>BufferedReader</code></dt>
+<dd>The file handle of the DAT file to read.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, prints detailed information during processing.</dd>
+</dl></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.read_and_advance"><code class="name flex">
+<span>def <span class="ident">read_and_advance</span></span>(<span>self, format_str: str, offset: int)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_and_advance(self, format_str: str, offset: int):
+    &#34;&#34;&#34;
+    Reads data from the file contents and advances the offset.
+
+    Args:
+        format_str (str): The format string for struct unpacking.
+        offset (int): The number of bytes to advance after reading.
+
+    Returns:
+        The unpacked data.
+    &#34;&#34;&#34;
+    result = struct.unpack_from(format_str, self.contents, self.offset)[0]
+    self.offset += offset
+    return result</code></pre>
+</details>
+<div class="desc"><p>Reads data from the file contents and advances the offset.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>format_str</code></strong> :&ensp;<code>str</code></dt>
+<dd>The format string for struct unpacking.</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code></dt>
+<dd>The number of bytes to advance after reading.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The unpacked data.</p></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.read_dat_file"><code class="name flex">
+<span>def <span class="ident">read_dat_file</span></span>(<span>self, file_handle: _io.BufferedReader, verbose: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_dat_file(self, file_handle: BufferedReader, verbose: bool = False):
+    &#34;&#34;&#34;
+    Reads the contents of a DAT file and processes its image data. 
+    This is based on php code originally provided in the Swiss bird radar data manual.
+
+    Args:
+        file_handle (BufferedReader): The file handle of the DAT file to read.
+        verbose (bool): If True, prints detailed information during processing.
+    &#34;&#34;&#34;
+
+    self.version = self.read_and_advance(&#34;&gt;L&#34;, 4)
+    self.bgwidth = self.read_and_advance(&#34;&gt;L&#34;, 4)
+    self.bgheight = self.read_and_advance(&#34;&gt;L&#34;, 4)
+    self.rofi_count = self.read_and_advance(&#34;&gt;L&#34;, 4)
+    if verbose:
+        print(&#34;{0},{1},{2},{3}&#34;.format(self.version,
+              self.bgwidth, self.bgheight, self.rofi_count))
+
+    for i in range(self.rofi_count):
+        if verbose:
+            print(i/self.rofi_count)
+        rofi = {}
+        rofi[&#34;height&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        rofi[&#34;left&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        rofi[&#34;top&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        rofi[&#34;width&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        rofi[&#34;area&#34;] = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        rofirows = self.read_and_advance(&#34;&gt;L&#34;, 4)
+        roficols = self.read_and_advance(&#34;&gt;L&#34;, 4)
+
+        image = Image.new(&#39;RGB&#39;, (rofi[&#34;width&#34;], rofi[&#34;height&#34;]))
+        newimdata = []
+        for row in range(rofirows):
+            for col in range(roficols):
+                b = self.read_and_advance(&#34;B&#34;, 1)
+                g = self.read_and_advance(&#34;B&#34;, 1)
+                r = self.read_and_advance(&#34;B&#34;, 1)
+                rgb = (r, g, b)
+                newimdata.append(rgb)
+            self.offset += 1*roficols
+
+        image.putdata(newimdata)
+        rofi[&#34;image&#34;] = image
+        self.rofi_all.append(rofi)</code></pre>
+</details>
+<div class="desc"><p>Reads the contents of a DAT file and processes its image data.
+This is based on php code originally provided in the Swiss bird radar data manual.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_handle</code></strong> :&ensp;<code>BufferedReader</code></dt>
+<dd>The file handle of the DAT file to read.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, prints detailed information during processing.</dd>
+</dl></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;
+    Resets the internal state of the DatReader instance.
+    &#34;&#34;&#34;
+    self.rofi_all = []
+    self.offset = 0
+    self.contents = None</code></pre>
+</details>
+<div class="desc"><p>Resets the internal state of the DatReader instance.</p></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.save_animation"><code class="name flex">
+<span>def <span class="ident">save_animation</span></span>(<span>self, file_path: str, color: tuple = (0, 0, 0))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_animation(self, file_path: str, color: tuple = (0, 0, 0)):
+    &#34;&#34;&#34;
+    Saves an animation of the images to a file.
+
+    Args:
+        file_path (str): The path to save the animation file.
+        color (tuple): The background color as an RGB tuple.
+    &#34;&#34;&#34;
+    new_image_list = self.get_resized_image_list(color)
+    new_image_list[0].save(file_path, save_all=True,
+                           append_images=new_image_list[1:], loop=0)</code></pre>
+</details>
+<div class="desc"><p>Saves an animation of the images to a file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to save the animation file.</dd>
+<dt><strong><code>color</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The background color as an RGB tuple.</dd>
+</dl></div>
+</dd>
+<dt id="aerocam_handler.reader.DatReader.save_concatenated_image"><code class="name flex">
+<span>def <span class="ident">save_concatenated_image</span></span>(<span>self, file_path: str, color: tuple = (0, 0, 0))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_concatenated_image(self, file_path: str, color: tuple = (0, 0, 0)):
+    &#34;&#34;&#34;
+    Saves the concatenated image to a file.
+
+    Args:
+        file_path (str): The path to save the image file.
+        color (tuple): The background color as an RGB tuple.
+    &#34;&#34;&#34;
+    concat_image = self.get_concatenated_image(color)
+    concat_image.save(file_path)</code></pre>
+</details>
+<div class="desc"><p>Saves the concatenated image to a file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to save the image file.</dd>
+<dt><strong><code>color</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The background color as an RGB tuple.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="aerocam_handler" href="index.html">aerocam_handler</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="aerocam_handler.reader.DatReader" href="#aerocam_handler.reader.DatReader">DatReader</a></code></h4>
+<ul class="">
+<li><code><a title="aerocam_handler.reader.DatReader.check_rofi" href="#aerocam_handler.reader.DatReader.check_rofi">check_rofi</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.get_concatenated_image" href="#aerocam_handler.reader.DatReader.get_concatenated_image">get_concatenated_image</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.get_resized_image_list" href="#aerocam_handler.reader.DatReader.get_resized_image_list">get_resized_image_list</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.image_list" href="#aerocam_handler.reader.DatReader.image_list">image_list</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.open_dat_file" href="#aerocam_handler.reader.DatReader.open_dat_file">open_dat_file</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.read_and_advance" href="#aerocam_handler.reader.DatReader.read_and_advance">read_and_advance</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.read_dat_file" href="#aerocam_handler.reader.DatReader.read_dat_file">read_dat_file</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.reset" href="#aerocam_handler.reader.DatReader.reset">reset</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.save_animation" href="#aerocam_handler.reader.DatReader.save_animation">save_animation</a></code></li>
+<li><code><a title="aerocam_handler.reader.DatReader.save_concatenated_image" href="#aerocam_handler.reader.DatReader.save_concatenated_image">save_concatenated_image</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
